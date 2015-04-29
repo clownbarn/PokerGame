@@ -21,20 +21,12 @@ namespace PokerGame
         {
             Console.WriteLine( "Starting new Game for {0} Players.", NUM_PLAYERS );
             Console.WriteLine();
-            Console.WriteLine( "Creating Deck" );
 
             // Create a new Card Deck.
-            this.Deck = new Deck();
-
-            Console.WriteLine( "Deck Created." );
-            this.Deck.PrintAvailableCards();
+            CreateDeck();
 
             // Shuffle the available Cards in the Deck.
-            Console.WriteLine( "Shuffling Deck." );
-            this.Deck.Shuffle();
-
-            Console.WriteLine( "Deck Shuffled." );
-            this.Deck.PrintAvailableCards();
+            ShuffleDeck();
 
             // Add the Players to the Game.
             AddPlayers( NUM_PLAYERS );
@@ -42,20 +34,70 @@ namespace PokerGame
             // Deal Cards to the Players.
             DealCards();
 
-            //SortHands();
-
             // Score each Player's Hand.
             ScoreHands();
 
             // Sort the Players by the scores for their Hands.
+            SortPlayersByScore();
 
             // TODO: Break Ties.
+
+            // Print Game Results to Console.
+            PrintGameResults();
         }
 
         #endregion
 
         #region Private Methods
 
+        private void PrintGameResults()
+        {
+            Console.WriteLine( "////////////////////////////// Game Results ///////////////////////////////////" );
+
+            Console.WriteLine( "///////////////////////////////////////////////////////////////////////////////" );
+            Console.WriteLine();
+        }
+
+        /// <summary>
+        /// Shuffles the available Cards in the Deck.
+        /// </summary>
+        private void ShuffleDeck()
+        {
+            Console.WriteLine( "Shuffling Deck." );
+            this.Deck.Shuffle();
+
+            Console.WriteLine( "Deck Shuffled." );
+            this.Deck.PrintAvailableCards();
+        }
+
+        /// <summary>
+        /// Sets up a new Deck and initializes the List of available Cards.
+        /// </summary>
+        private void CreateDeck()
+        {
+            Console.WriteLine( "Creating Deck" );
+
+            this.Deck = new Deck();
+
+            Console.WriteLine( "Deck Created." );
+            this.Deck.PrintAvailableCards();
+        }
+
+        /// <summary>
+        /// Sorts each Player in the Game by the score of their Hand.
+        /// </summary>
+        private void SortPlayersByScore()
+        {
+            Console.WriteLine( "Sorting Players by score." );
+
+            this.Players.Sort();
+
+            Console.WriteLine( "Players Sorted by score." );
+        }
+
+        /// <summary>
+        /// Sets the score for each Player's Hand.
+        /// </summary>
         private void ScoreHands()
         {
             Console.WriteLine( "Scoring each Player's Hand." );
@@ -68,10 +110,10 @@ namespace PokerGame
                 sh.ScoreHand( p.Hand );
 
                 Console.WriteLine( "{0} has a score of: {1}", p.Name, Enum.GetName( typeof( SCORE ), p.Hand.Score ) );
-            }            
+            }
 
             Console.WriteLine( "Hands scored." );
-            Console.WriteLine();            
+            Console.WriteLine();
         }
 
         /// <summary>
