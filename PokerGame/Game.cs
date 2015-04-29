@@ -53,7 +53,18 @@ namespace PokerGame
         private void PrintGameResults()
         {
             Console.WriteLine( "////////////////////////////// Game Results ///////////////////////////////////" );
+            Console.WriteLine();
 
+            foreach ( Player p in Players )
+            {
+                Console.WriteLine( "-------------------------------------------------------------------------------" );
+                Console.WriteLine( "" );
+                Console.WriteLine( p.Name );
+                Console.WriteLine( p.Hand.ToString() );
+                Console.WriteLine( "-------------------------------------------------------------------------------" );
+            }
+
+            Console.WriteLine();
             Console.WriteLine( "///////////////////////////////////////////////////////////////////////////////" );
             Console.WriteLine();
         }
@@ -93,6 +104,7 @@ namespace PokerGame
             this.Players.Sort();
 
             Console.WriteLine( "Players Sorted by score." );
+            Console.WriteLine();
         }
 
         /// <summary>

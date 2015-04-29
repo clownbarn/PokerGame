@@ -5,7 +5,7 @@ namespace PokerGame
 {
     /// <summary>
     /// The ScoreHelper class contains methods for scoring Cards in a Player's Hand.
-    /// Caveats: A Hand must contain only 5 cards. Jokers/Wild cards are not supported.
+    /// Caveats: A Hand must contain only 5 Cards. Jokers/Wild Cards are not supported.
     /// </summary>
     public class ScoreHelper
     {
@@ -198,6 +198,10 @@ namespace PokerGame
             return false;
         }
 
+        /// <summary>
+        /// Determines and sets the score for a given hand.
+        /// </summary>
+        /// <param name="h"></param>
         public void ScoreHand( Hand h )
         {
             // Order is important.  Sort Cards in Hand before scoring.
