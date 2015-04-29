@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PokerGame
 {
-    public class Hand
+    public class Hand 
     {
         #region Constructor
 

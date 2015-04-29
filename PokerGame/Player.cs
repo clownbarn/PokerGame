@@ -30,11 +30,20 @@ namespace PokerGame
 
         public int CompareTo( Player other )
         {
-            if ( Hand.Score > other.Hand.Score )
-                return -1;
-            else if ( Hand.Score < other.Hand.Score )
-                return 1;
-            return 0;
+            //if ( Hand.Score > other.Hand.Score )
+            //    return -1;
+            //else if ( Hand.Score < other.Hand.Score )
+            //    return 1;
+            //return 0;
+
+            for ( int i = 4; i >= 0; i-- )
+            {
+                if ( Hand.Cards[ i ].Rank < other.Hand.Cards[ i ].Rank )
+                    return 1;
+                else if ( Hand.Cards[ i ].Rank > other.Hand.Cards[ i ].Rank )
+                    return -1;
+            }
+            return 0; 
         }
 
         #endregion

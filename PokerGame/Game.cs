@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace PokerGame
@@ -12,6 +13,11 @@ namespace PokerGame
 
         // TODO: make this variable, depending on style of game
         public const int NUM_CARDS_PER_PLAYER = 5;
+
+        /// <summary>
+        /// Number of times to shuffle the deck.
+        /// </summary>
+        public const int NUM_SHUFFLES = 10;
 
         #endregion
 
@@ -37,10 +43,8 @@ namespace PokerGame
             // Score each Player's Hand.
             ScoreHands();
 
-            // Sort the Players by the scores for their Hands.
-            SortPlayersByScore();
-
-            // TODO: Break Ties.
+            // Sort the Players by the scores for their Hands.            
+            SortPlayersByScore();            
 
             // Print Game Results to Console.
             PrintGameResults();
@@ -75,7 +79,7 @@ namespace PokerGame
         private void ShuffleDeck()
         {
             Console.WriteLine( "Shuffling Deck." );
-            this.Deck.Shuffle();
+            this.Deck.Shuffle( NUM_SHUFFLES );
 
             Console.WriteLine( "Deck Shuffled." );
             this.Deck.PrintAvailableCards();
@@ -101,10 +105,24 @@ namespace PokerGame
         {
             Console.WriteLine( "Sorting Players by score." );
 
+            // First order the list of Players by ordering their Hands by Card rank.
+            // This is a half-baked attempt to break ties and may not address
+            // the cases where Aces appear. My Poker skills are rusty.
             this.Players.Sort();
+
+            // Then Use LINQ to re-sort the Player list by raw score.
+            var v = this.Players.OrderByDescending( x => x.Hand.Score );
+            this.Players = v.ToList();
 
             Console.WriteLine( "Players Sorted by score." );
             Console.WriteLine();
+        }
+
+        private void BreakTies()
+        {
+            var v = Players.Where( x => x.Hand.Score == SCORE.HighCard );
+            List<Player> players = v.ToList();
+            players.Sort();
         }
 
         /// <summary>

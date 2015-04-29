@@ -63,9 +63,9 @@ namespace PokerGame
         /// Shuffles the Deck of available Cards the specified number of times.
         /// </summary>
         /// <param name="times">Number of times to shuffle the Deck of available Cards.</param>
-        public void Shuffle(int times)
+        public void Shuffle( int times )
         {
-            for(int i = 0; i < times; i++)
+            for ( int i = 0; i < times; i++ )
             {
                 Shuffle();
             }
@@ -78,8 +78,8 @@ namespace PokerGame
         public Card DealCard()
         {
             // Deal a card from the top of the deck.
-            Card c = AvailableCards[0];
-            AvailableCards.RemoveAt(0);
+            Card c = AvailableCards[ 0 ];
+            AvailableCards.RemoveAt( 0 );
 
             return c;
         }
