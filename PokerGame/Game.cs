@@ -20,27 +20,59 @@ namespace PokerGame
         public Game()
         {
             Console.WriteLine( "Starting new Game for {0} Players.", NUM_PLAYERS );
+            Console.WriteLine();
             Console.WriteLine( "Creating Deck" );
 
+            // Create a new Card Deck.
             this.Deck = new Deck();
 
             Console.WriteLine( "Deck Created." );
             this.Deck.PrintAvailableCards();
 
+            // Shuffle the available Cards in the Deck.
             Console.WriteLine( "Shuffling Deck." );
             this.Deck.Shuffle();
 
             Console.WriteLine( "Deck Shuffled." );
             this.Deck.PrintAvailableCards();
 
+            // Add the Players to the Game.
             AddPlayers( NUM_PLAYERS );
+
+            // Deal Cards to the Players.
             DealCards();
-            SortHands();
+
+            //SortHands();
+
+            // Score each Player's Hand.
+            ScoreHands();
+
+            // Sort the Players by the scores for their Hands.
+
+            // TODO: Break Ties.
         }
 
         #endregion
 
         #region Private Methods
+
+        private void ScoreHands()
+        {
+            Console.WriteLine( "Scoring each Player's Hand." );
+
+            // Set the score for each Hand.
+            ScoreHelper sh = new ScoreHelper();
+
+            foreach ( Player p in Players )
+            {
+                sh.ScoreHand( p.Hand );
+
+                Console.WriteLine( "{0} has a score of: {1}", p.Name, Enum.GetName( typeof( SCORE ), p.Hand.Score ) );
+            }            
+
+            Console.WriteLine( "Hands scored." );
+            Console.WriteLine();            
+        }
 
         /// <summary>
         /// Sorts the Cards in each Player's Hand.
@@ -73,6 +105,7 @@ namespace PokerGame
             }
 
             Console.WriteLine( "{0} Cards dealt to {1} Players.", NUM_CARDS_PER_PLAYER * NUM_PLAYERS, NUM_PLAYERS );
+            Console.WriteLine();
         }
 
         /// <summary>
@@ -91,6 +124,7 @@ namespace PokerGame
             }
 
             Console.WriteLine( "{0} Players Added.", numPlayers );
+            Console.WriteLine();
         }
 
         #endregion
