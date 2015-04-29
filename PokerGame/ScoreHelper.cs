@@ -166,14 +166,14 @@ namespace PokerGame
         /// Checks for existence of only one pair of identically ranked Cards.
         /// Caveat: must be checked after check for 2 pairs.
         /// </summary>
-        /// <param name="cards"></param>
+        /// <param name="c"></param>
         /// <returns></returns>
-        public bool IsOnePair( List<Card> cards )
+        public bool IsOnePair( List<Card> c )
         {
-            if( cards[ 0 ].Rank == cards[ 1 ].Rank ||
-                cards[ 1 ].Rank == cards[ 2 ].Rank ||
-                cards[ 2 ].Rank == cards[ 3 ].Rank ||
-                cards[ 3 ].Rank == cards[ 4 ].Rank )
+            if( c[ 0 ].Rank == c[ 1 ].Rank ||
+                c[ 1 ].Rank == c[ 2 ].Rank ||
+                c[ 2 ].Rank == c[ 3 ].Rank ||
+                c[ 3 ].Rank == c[ 4 ].Rank )
                 return true;
 
             return false;
@@ -182,16 +182,16 @@ namespace PokerGame
         /// <summary>
         /// Checks to see if Cards pass straight, flush, and are ranked A, 10, J, Q, K
         /// </summary>
-        /// <param name="cards"></param>
+        /// <param name="c"></param>
         /// <returns></returns>
-        public bool IsRoyalFlush( List<Card> cards )
+        public bool IsRoyalFlush( List<Card> c )
         {
-            if ( IsStraight( cards ) && IsFlush( cards ) &&
-                  cards[ 0 ].Rank == RANK.Ace &&
-                  cards[ 1 ].Rank == RANK.Ten &&
-                  cards[ 2 ].Rank == RANK.Jack &&
-                  cards[ 3 ].Rank == RANK.Queen &&
-                  cards[ 4 ].Rank == RANK.King )
+            if ( IsStraight( c ) && IsFlush( c ) &&
+                  c[ 0 ].Rank == RANK.Ace &&
+                  c[ 1 ].Rank == RANK.Ten &&
+                  c[ 2 ].Rank == RANK.Jack &&
+                  c[ 3 ].Rank == RANK.Queen &&
+                  c[ 4 ].Rank == RANK.King )
                 return true;
 
             return false;
