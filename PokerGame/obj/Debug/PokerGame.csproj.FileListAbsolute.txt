@@ -1,0 +1,6 @@
+c:\users\swhittier\Google Drive\projects\CSharp\PokerGame\PokerGame\bin\Debug\PokerGame.exe.config
+c:\users\swhittier\Google Drive\projects\CSharp\PokerGame\PokerGame\bin\Debug\PokerGame.exe
+c:\users\swhittier\Google Drive\projects\CSharp\PokerGame\PokerGame\bin\Debug\PokerGame.pdb
+c:\users\swhittier\Google Drive\projects\CSharp\PokerGame\PokerGame\obj\Debug\PokerGame.exe
+c:\users\swhittier\Google Drive\projects\CSharp\PokerGame\PokerGame\obj\Debug\PokerGame.pdb
+c:\users\swhittier\Google Drive\projects\CSharp\PokerGame\PokerGame\obj\Debug\PokerGame.csprojResolveAssemblyReference.cache
