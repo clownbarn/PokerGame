@@ -39,6 +39,7 @@ namespace PokerGame
             sh.ScoreHand( hand1 );
             b = hand1.Score == SCORE.Straight;
             Console.WriteLine( "Hand 1 is Straight: {0}.", b );
+            Console.WriteLine( hand1.ToString() );
 
             Hand hand2 = new Hand();
             hand2.AddCard( new Card( SUIT.Spades, RANK.Ten ) );
@@ -50,6 +51,7 @@ namespace PokerGame
             sh.ScoreHand( hand2 );
             b = hand2.Score == SCORE.Straight;
             Console.WriteLine( "Hand 2 is Straight: {0}.", b );
+            Console.WriteLine( hand2.ToString() );
 
             //
             // Test IsFlush()
@@ -64,6 +66,7 @@ namespace PokerGame
             sh.ScoreHand( hand3 );
             b = hand3.Score == SCORE.Flush;
             Console.WriteLine( "Hand 3 is Flush: {0}.", b );
+            Console.WriteLine( hand3.ToString() );
 
             //
             // Test IsRoyalFlush()
@@ -78,6 +81,7 @@ namespace PokerGame
             sh.ScoreHand( hand4 );
             b = hand4.Score == SCORE.RoyalFlush;
             Console.WriteLine( "Hand 4 is Royal Flush: {0}.", b );
+            Console.WriteLine( hand4.ToString() );
 
             //
             // Test IsStraightFlush()
@@ -92,6 +96,7 @@ namespace PokerGame
             sh.ScoreHand( hand5 );
             b = hand5.Score == SCORE.StraightFlush;
             Console.WriteLine( "Hand 5 is Straight Flush: {0}.", b );
+            Console.WriteLine( hand5.ToString() );
 
             //
             // Test IsFourOfAKind()
@@ -106,6 +111,7 @@ namespace PokerGame
             sh.ScoreHand( hand6 );
             b = hand6.Score == SCORE.FourOfAKind;
             Console.WriteLine( "Hand 6 is Four Of A Kind: {0}.", b );
+            Console.WriteLine( hand6.ToString() );
 
             //
             // Test IsThreeOfAKind()
@@ -120,6 +126,7 @@ namespace PokerGame
             sh.ScoreHand( hand7 );
             b = hand7.Score == SCORE.ThreeOfAKind;
             Console.WriteLine( "Hand 7 is Three Of A Kind: {0}.", b );
+            Console.WriteLine( hand7.ToString() );
 
             Hand hand8 = new Hand();
             hand8.AddCard( new Card( SUIT.Spades, RANK.Two ) );
@@ -131,6 +138,7 @@ namespace PokerGame
             sh.ScoreHand( hand8 );
             b = hand8.Score == SCORE.ThreeOfAKind;
             Console.WriteLine( "Hand 8 is Three Of A Kind: {0}.", b );
+            Console.WriteLine( hand8.ToString() );
 
             Hand hand9 = new Hand();
             hand9.AddCard( new Card( SUIT.Spades, RANK.Two ) );
@@ -142,6 +150,7 @@ namespace PokerGame
             sh.ScoreHand( hand9 );
             b = hand9.Score == SCORE.ThreeOfAKind;
             Console.WriteLine( "Hand 9 is Three Of A Kind: {0}.", b );
+            Console.WriteLine( hand9.ToString() );
 
             //
             // Test IsTwoPair()
@@ -156,6 +165,7 @@ namespace PokerGame
             sh.ScoreHand( hand10 );
             b = hand10.Score == SCORE.TwoPair;
             Console.WriteLine( "Hand 10 is Two Pair: {0}.", b );
+            Console.WriteLine( hand10.ToString() );
 
             Hand hand11 = new Hand();
             hand11.AddCard( new Card( SUIT.Hearts, RANK.Two ) );
@@ -167,6 +177,7 @@ namespace PokerGame
             sh.ScoreHand( hand11 );
             b = hand11.Score == SCORE.TwoPair;
             Console.WriteLine( "Hand 11 is Two Pair: {0}.", b );
+            Console.WriteLine( hand11.ToString() );
 
             Hand hand12 = new Hand();
             hand12.AddCard( new Card( SUIT.Spades, RANK.Three ) );
@@ -178,6 +189,7 @@ namespace PokerGame
             sh.ScoreHand( hand12 );
             b = hand12.Score == SCORE.TwoPair;
             Console.WriteLine( "Hand 12 is Two Pair: {0}.", b );
+            Console.WriteLine( hand12.ToString() );
 
             //
             // Test IsOnePair()
@@ -192,6 +204,7 @@ namespace PokerGame
             sh.ScoreHand( hand13 );
             b = hand13.Score == SCORE.OnePair;
             Console.WriteLine( "Hand 13 is One Pair: {0}.", b );
+            Console.WriteLine( hand13.ToString() );
 
             Hand hand14 = new Hand();
             hand14.AddCard( new Card( SUIT.Spades, RANK.Three ) );
@@ -203,6 +216,7 @@ namespace PokerGame
             sh.ScoreHand( hand14 );
             b = hand14.Score == SCORE.OnePair;
             Console.WriteLine( "Hand 14 is One Pair: {0}.", b );
+            Console.WriteLine( hand14.ToString() );
 
             Hand hand15 = new Hand();
             hand15.AddCard( new Card( SUIT.Spades, RANK.Three ) );
@@ -214,6 +228,7 @@ namespace PokerGame
             sh.ScoreHand( hand15 );
             b = hand15.Score == SCORE.OnePair;
             Console.WriteLine( "Hand 15 is One Pair: {0}.", b );
+            Console.WriteLine( hand15.ToString() );
 
             Hand hand16 = new Hand();
             hand16.AddCard( new Card( SUIT.Spades, RANK.Three ) );
@@ -225,6 +240,7 @@ namespace PokerGame
             sh.ScoreHand( hand16 );
             b = hand16.Score == SCORE.OnePair;
             Console.WriteLine( "Hand 16 is One Pair: {0}.", b );
+            Console.WriteLine( hand16.ToString() );
 
             //
             // Test to see if Hand's score falls through to HighCard
@@ -243,7 +259,8 @@ namespace PokerGame
 
             string msg = b ? String.Format( "Hand 17 is HighCard: {0}.", b ) : String.Format( "Something went wrong. Hand 17 is: {0}", Enum.GetName( typeof( SCORE ), hand17.Score ) );
 
-            Console.WriteLine( msg );                                               
+            Console.WriteLine( msg );
+            Console.WriteLine( hand17.ToString() );
         }
 
         #endregion
