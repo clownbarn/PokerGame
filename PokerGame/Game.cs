@@ -116,14 +116,7 @@ namespace PokerGame
 
             Console.WriteLine( "Players Sorted by score." );
             Console.WriteLine();
-        }
-
-        private void BreakTies()
-        {
-            var v = Players.Where( x => x.Hand.Score == SCORE.HighCard );
-            List<Player> players = v.ToList();
-            players.Sort();
-        }
+        }        
 
         /// <summary>
         /// Sets the score for each Player's Hand.
