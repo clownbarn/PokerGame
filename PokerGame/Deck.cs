@@ -31,13 +31,12 @@ namespace PokerGame
         /// </summary>
         public void Initialize()
         {
+            AvailableCards = new List<Card>();
+
             foreach ( SUIT s in Enum.GetValues( typeof( SUIT ) ) )
             {
                 foreach ( RANK r in Enum.GetValues( typeof( RANK ) ) )
                 {
-                    if ( null == AvailableCards )
-                        AvailableCards = new List<Card>();
-
                     AvailableCards.Add( new Card( s, r ) );
                 }
             }
